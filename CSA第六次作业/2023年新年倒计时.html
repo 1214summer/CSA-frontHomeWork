@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>新年倒计时</title>
+</head>
+<style>
+    @charset "UTF-8";
+
+    div {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    .count{
+        display: flex;
+        width: 500px;
+        height: 280px;
+        border:1px solid #aaa;
+        box-shadow:2px 2px 4px #aaa;
+        border-radius: 5px;
+    }
+    .img{
+        width: 60%;
+        height: 100%;
+        background-color: pink;
+    }
+    img{
+        width: 100%;
+        height: 100%;
+    }
+
+    .header{
+        font-size: 18px;
+        height: 80px;
+        line-height: 80px;
+    }
+    .day{
+        display: flex;
+        height: 100px;
+        align-items: center;
+        justify-content: center;
+        color: red;
+        font-size: 28px;
+        
+    }
+    #LeftTime {
+        display: flex;
+        height: 100px;
+        align-items: center;
+        justify-content: center;
+        color: #312d2d;
+    }
+</style>
+
+<body>
+    <div class="count">
+        <div class="img">
+            <img src="./新年快乐.png" alt="">
+        </div>
+        <div id="right"></div>   
+    </div>
+    <script>
+        function FreshTime() {
+            var endtime = new Date("2024/1/1,00:00:00");
+            var nowtime = new Date();//当前时间
+            var lefttime = parseInt((endtime.getTime() - nowtime.getTime()) / 1000);
+            d = parseInt(lefttime / (24 * 60 * 60));
+            h = parseInt(lefttime / (60 * 60) % 24);
+            m = parseInt(lefttime / 60 % 60);
+            s = parseInt(lefttime % 60);
+
+            let str =`
+            <div class="time">
+                <span class="header">🎆距离新的一年还有🎆</span>
+                <div class="day">${d}天</div>
+                <span id="LeftTime">${h}小时${m}分${s}秒</span>
+            </div>
+            `
+            document.getElementById("right").innerHTML = str
+            if (lefttime <= 0) {
+                document.getElementById("right").innerHTML = "新年快乐";
+                clearInterval(sh);
+            }
+        }
+        FreshTime()
+        var sh;
+        sh = setInterval(FreshTime, 1000);
+    </script>
+</body>
+
+</html>
