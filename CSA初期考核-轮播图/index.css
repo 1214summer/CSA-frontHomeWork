@@ -1,0 +1,111 @@
+body{
+    margin: 0;
+    padding: 0;
+    
+}
+li{
+    list-style: none;
+}
+.body{
+    height: 480px;
+    width: 100%;
+    background-color: #f3f3f3;
+    margin-top: 180px;
+    padding: 10px 0;
+}
+header {
+    height: 60px;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+}
+.tab{
+    padding-left:400px;
+    height: 50px;
+}
+.tab div{
+    cursor: pointer;
+    float: left;
+    margin-right: 50px;
+}
+.tab div:hover{
+    color: rgb(139, 226, 84);
+}
+.main{
+    height: 300px;
+    margin-top: 20px;
+}
+.left,
+.right
+{
+    display:block;
+    float: left;
+    font-size: 50px;
+    width: 100px;
+    height: 100px;
+    background-color: #ededed;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 70px;
+    line-height: 100px;
+}
+.right{
+    text-align: right;
+}
+.outer{
+    position: relative;
+    float: left;
+    width: 1233px;
+    height: 310px;
+    overflow: hidden;
+}
+.content{
+    position: absolute;
+    width: 1233px;
+    height: 310px;
+    white-space: nowrap;
+}
+.data{
+    display: inline-block;
+    background-color: #fff;
+    width: 230px;
+    height: 290px;
+    margin-right: 20px;
+    margin-left: 0;
+}
+.data:nth-child(5n){
+    margin-right: 0;
+}
+.data img{
+    width: 230px;
+    height: 230px;
+}
+.profile{
+    font-size: 14px;
+}
+.name{
+    display: block;
+    height: 35px;
+    white-space: normal;
+}
+.circle{
+    display: flex;
+    margin-left: 43%;
+    position:absolute;
+    bottom: -40px;
+}
+.circle li{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background:rgba(255,255,255,0.5);
+    margin-right: 5px;
+    cursor: pointer;
+}
+.circle .current{
+    background-color: #aaa;
+}
+.circle li:hover{
+    background-color: #aaa;
+}
