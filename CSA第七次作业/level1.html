@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content{
+            margin-left: 300px;
+            margin-top: 200px;
+            width: 1000px;
+            height: 450px;
+        }
+        .data{
+            float: left;
+            width: 200px;
+            height: 200px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            background-color: #d8d5d5;
+            border: 1px solid #aaa;
+            font-size: 14px;
+        }
+        .data img{
+            width: 200px;
+            height: 160px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="content">
+
+    </div>
+    <script>
+
+        let option = {
+            method: 'GET',
+            mode: 'cors',
+        }
+        fetch('https://autumnfish.cn/personalized?limit=8').then(res => {
+            return res.json()
+        })
+            .then(json => {
+                console.log(json.result)
+                let datas = json.result
+                datas.map(data => {
+                    let str = `
+                    <div class="data">
+                        <img src=${data.picUrl} alt="">
+                        <span class="name">${data.name}</span>
+                    </div>
+                    `
+                    document.querySelector('.content').innerHTML += str
+
+                })
+            })
+
+    </script>
+</body>
+
+</html>
